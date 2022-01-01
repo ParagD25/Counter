@@ -3,13 +3,15 @@ import mediapipe as mp
 import os
 import numpy 
 
-capture=cv2.VideoCapture(1)
+cap=cv2.VideoCapture(0)
 
 while True:
-    success,img=capture.read()
-    cv2.imshow('Counter',img)
+    ret,frame=cap.read()
+    cv2.imshow('Counter',frame)
 
     if cv2.waitKey(1) & 0xFF==ord('q'):
         break
 
+
+cap.release()
 cv2.destroyAllWindows()
